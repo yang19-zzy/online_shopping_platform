@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../dist/bundle.js" defer></script>
+    <!-- <script src="./src/index.js" defer></script> -->
+    <link rel="stylesheet" href="../src/style/home.css">
+    <link rel="stylesheet" href="../src/style/pay.css">
+    <link rel="shortcut icon" href="../src/images/favicon.ico" type="image/x-icon">
+    <title>Game Shop - check out</title>
+</head>
+<body>
+    <header>
+        <h1><a href="./home.html"><em>Game Shop</em></a></h1>
+    </header>
+    <main>
+        <section id='card'>
+            <div id='card-background'>
+                <img src="./src/images/card.svg" alt="credit card" width="350px" height="300px">
+            </div>
+            <div id="card-input">
+                <div id="card-number">
+                    <h1>card number</h1>
+                    <input type="text" placeholder="0123 4567 8901 2345">
+                </div>
+                
+                <div id="card-cvv">
+                    <h1>cvv</h1>
+                    <input type="text" placeholder="985">
+                </div>
+
+                <div id="cardholder">
+                    <h1>cardholder name</h1>
+                    <input type="text" placeholder="James Bond">
+                </div>
+                
+                <div id="card-expiration">
+                    <h1>expiration</h1>
+                    <input type="text" placeholder="02/22">
+                </div>
+
+            </div>
+        </section>
+
+        <section id='shipping-address'>
+            <div id="address">
+                <h1>Address (e.g. apt., room#, street)</h1>
+                <input type="text">
+            </div>
+
+            <div id="city">
+                <h1>City</h1>
+                <input type="text">
+            </div>
+
+            <div id="state">
+                <h1>State</h1>
+                <input type="text">
+            </div>
+
+            <div id="phone">
+                <h1>Phone #</h1>
+                <input type="text">
+            </div>
+
+            <div id="zip">
+                <h1> Zip code</h1>
+                <input type="text">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div id="copyright">
+            <p>Game Shop@2021</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+main h1 {
+    padding: 0 0 0 30px;
+    font-weight: 300;
+}
+a {
+    text-decoration: none;
+    color: #707070;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.pay h1 {
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    background-color: #bababa;
+    float: right;
+    /* position: relative; */
+    padding: 5px 10px 5px 10px;
+    margin-right: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+.pay h1:hover {
+    background-color: #707070;
+    cursor: pointer;
+}

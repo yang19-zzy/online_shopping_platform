@@ -1,0 +1,13 @@
+<svg id="shop_cart" data-name="shop cart" xmlns="http://www.w3.org/2000/svg" width="140.408" height="140.914" viewBox="0 0 140.408 140.914">
+  <g id="Component_3_1" data-name="Component 3 – 1">
+    <g id="Ellipse_1" data-name="Ellipse 1" fill="#bababa" stroke="#bababa" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="2.5">
+      <ellipse cx="70.204" cy="70.457" rx="70.204" ry="70.457" stroke="none"/>
+      <ellipse cx="70.204" cy="70.457" rx="68.954" ry="69.207" fill="none"/>
+    </g>
+  </g>
+  <g id="Icon_feather-shopping-cart" data-name="Icon feather-shopping-cart" transform="translate(35.5 47.5)">
+    <path id="Path_1" data-name="Path 1" d="M14.267,31.133A1.133,1.133,0,1,1,13.133,30,1.133,1.133,0,0,1,14.267,31.133Z" transform="translate(8.449 12.148)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_2" data-name="Path 2" d="M30.767,31.133A1.133,1.133,0,1,1,29.633,30,1.133,1.133,0,0,1,30.767,31.133Z" transform="translate(24.874 12.148)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_3" data-name="Path 3" d="M1.5,1.5H11.756l6.871,32.237a5.065,5.065,0,0,0,5.128,3.876H48.677a5.065,5.065,0,0,0,5.128-3.876l4.1-20.2H14.32" transform="translate(0)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+</svg>

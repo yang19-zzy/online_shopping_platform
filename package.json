@@ -1,0 +1,33 @@
+{
+  "name": "online_shopping_platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "homepage": "https://yang19-zzy.github.io/online_shopping_platform/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "html-webpack-plugin": "^5.3.1",
+    "moment": "^2.29.1",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "credit-card": "^3.0.2",
+    "creditcard-generator": "0.0.7",
+    "fake_credit_card": "^1.0.1",
+    "local-storage": "^2.0.0",
+    "lodash": "^4.17.21",
+    "process": "^0.11.10",
+    "random-name": "^0.1.2"
+  }
+}

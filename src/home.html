@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../dist/bundle.js" defer></script>
+    <link rel="stylesheet" href="../src/style/home.css">
+    <link rel="shortcut icon" href="../src/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Game Shop - Home</title>
+</head>
+<body>
+    <header>
+        <h1><a href="./home.html"><em>Game Shop</em></a></h1>
+        <section class="notice-board">
+            <div id="notice" class="color1">Game Shop Test v.1.0 <br><em>DO NOT PURCHASE ANYTHING ON THIS PAGE!</em>
+                <div id="close">Close [X]</div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        
+        <section>
+            <div id="switch" class="item console">
+                <img src="../src/images/switch.jpeg" alt="Switch">
+                <h4 class="name">Switch</h4>
+                <h4 class="price">$298.80</h4>
+                <div class="modify-num" id="switchModifyNum">
+                    <div class="minus-btn btn" id="switch-minus">
+                        <i class="fa fa-minus"></i>
+                    </div>
+                    <div id="switch-num">0</div>
+                    <div class="plus-btn btn" id="switch-add">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="fit-ring" class="item game">
+                <img src="../src/images/ringfit.jpeg" alt="RingFit Adventure">
+                <h4 class="name">RingFit Adventure</h4>
+                <h4 class="price">$78.80</h4>
+                <div class="modify-num" id="ringModifyNum">
+                    <div class="minus-btn btn" id="ringfit-minus">
+                        <i class="fa fa-minus"></i>
+                    </div>
+                    <div id="ringfit-num">0</div>
+                    <div class="plus-btn btn" id="ringfit-add">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+                <!-- <button>Add to Cart</button> -->
+    
+            </div>
+    
+        </section>
+
+        <a href="./cart.html" class="float">
+            <i class="fa fa-shopping-cart my-float" style="font-size: 30px;"></i>
+            <div class="icon-cart-quantity">
+                <span class="sqs-cart-quantity" id="num-items">0</span>
+            </div>
+        </a>
+
+    </main>
+
+    <footer>
+        <div id="copyright">
+            <p>Game Shop@2021</p>
+        </div>
+    </footer>
+</body>
+</html>
