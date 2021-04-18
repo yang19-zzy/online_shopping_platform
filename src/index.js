@@ -120,6 +120,7 @@ if (addbtn_ringfit) {
         let x = parseInt(ringfitNum.innerHTML);
         let y = parseInt(switchNum.innerHTML);
         x++;
+        ringfitNum.innerHTML = x;
         console.log("ringfitNum",x);
         cartQuantity.innerText =  x + y;
         // total.innerText = calculateTotal(x, y);
