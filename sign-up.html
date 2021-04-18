@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./dist/bundle.js"></script>
+    <script src="./dist/bundle.js" defer></script>
     <link rel="stylesheet" href="./src/style/sign.css">
     <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
     <title>Game Shop - sign up</title>
@@ -12,6 +12,8 @@
     <header>
         <h1><em>Game Shop</em></h1>
     </header>
+    <a href="home.html" id="redirect"></a>
+    
     <section id="sign-up">
         <div>User Name</div>
         <div>
@@ -19,13 +21,13 @@
         </div>
         <div>Password</div>
         <div>
-            <input type="text" id="password">
+            <input type="password" id="password">
         </div>
         <div>Re-enter Password</div>
         <div>
-            <input type="text" id="password2">
+            <input type="password" id="password2">
         </div>
-        <div class="btn"><a id="btn-sign-up">Sign up</a></div>
+        <div class="btn"><button type="button" id="btn-sign-up">Sign up</button></div>
 
     </section>
 </body>

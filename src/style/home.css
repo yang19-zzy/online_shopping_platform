@@ -52,13 +52,14 @@ footer {
 	right:40px;
 	background-color:#BABABA;
 	color:#FFF;
-	border-radius:50px;
+    border-radius:50px;
+    border: none;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
 }
 
 .my-float{
-    margin-top:16px;   
+    margin-top:0px;   
 }
 
 .float:hover, .modify-num .btn:hover {
@@ -129,9 +130,9 @@ section div {
 }
 
 /* class for items added in later */
-.item-name {}
-.item-price {}
-.item-img {}
+/* .item-name {} */
+/* .item-price {} */
+/* .item-img {} */
 
 /* website */
 @media (min-width: 390px) {

@@ -22,6 +22,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "cleave.js": "^1.6.0",
     "credit-card": "^3.0.2",
     "creditcard-generator": "0.0.7",
     "fake_credit_card": "^1.0.1",

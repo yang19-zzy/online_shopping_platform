@@ -30,3 +30,9 @@ footer {
     background-color: #707070;
     cursor: pointer;
 }
+
+main #total h1 {
+    float: left;
+    font-weight: 600;
+    font-size: 30px;
+}

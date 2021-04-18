@@ -85,6 +85,36 @@ footer {
     margin-bottom: 10px;
 }
 
+.pay h1 {
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    background-color: #bababa;
+    /* float: right; */
+    position: fixed;
+    bottom:60px;
+	right:40px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+.pay h1:hover {
+    background-color: #707070;
+    cursor: pointer;
+}
+
+#auto-fill {
+    position: fixed;
+    bottom:150px;
+	right:40px;
+    display: block;
+    width: 100px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
 
 
 @media (min-width: 800px) {
@@ -96,6 +126,10 @@ footer {
         padding-bottom: 300px;
     }
     
+    #card {
+        margin-top: 60px;
+    }
+
     #card-input {
         margin-top: 0; 
         margin-left: 25px;   
@@ -103,8 +137,8 @@ footer {
 
     #shipping-address {
         display: grid;
-        grid-template-columns: 250px 80px;
-        grid-auto-rows: 80px;
+        grid-template-columns: 200px 50px 80px;
+        grid-auto-rows: repeat(4,80px);
         row-gap: 10px;
         padding: 50px 150px;
         justify-content: center;
@@ -112,17 +146,27 @@ footer {
     }
 
     #address, #address input {
-        grid-column: span 2;
+        grid-column: span 3;
         width: 350px;
     }
     
-    #city, #city input, #phone, #phone input {
+    #firstname, #firstname input{
         grid-column: 1;
+        width: 150px;
+    }
+
+    #city, #city input, #phone, #phone input {
+        grid-column: span 2;
         width: 200px;
     }
 
+    #lastname, #lastname input{
+        grid-column: 2/-1;
+        width: 150px;
+    }
+
     #state, #state input, #zip, #zip input {
-        grid-column: 2;
+        grid-column: 3;
         width: 100px;
     }
 

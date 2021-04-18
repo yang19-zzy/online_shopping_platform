@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./dist/bundle.js" defer></script>
+    <script src="cleave.min.js"></script>
     <!-- <script src="./src/index.js" defer></script> -->
     <link rel="stylesheet" href="./src/style/home.css">
     <link rel="stylesheet" href="./src/style/pay.css">
@@ -37,13 +38,22 @@
                 
                 <div id="card-expiration">
                     <h1>expiration</h1>
-                    <input type="text" placeholder="02/22">
+                    <input type="text" placeholder="02/22" class="input-date">
                 </div>
 
             </div>
         </section>
 
         <section id='shipping-address'>
+            <div id="firstname">
+                <h1>First Name</h1>
+                <input type="text">
+            </div>
+            <div id="lastname">
+                <h1>Last Name</h1>
+                <input type="text">
+            </div>
+
             <div id="address">
                 <h1>Address (e.g. apt., room#, street)</h1>
                 <input type="text">
@@ -72,6 +82,11 @@
         </section>
 
     </main>
+    <div class="pay btn" id="pay">
+        <h1>Pay</h1>
+    </div>
+
+    <button id="auto-fill">Auto Fill</button>
 
 
     <footer>
