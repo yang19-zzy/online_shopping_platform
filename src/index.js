@@ -13,6 +13,18 @@ const random = require('random-name');
 // ###############################################
 // index.html
 console.log('index.html')
+let lastName = random.last();
+console.log('First name - ' + firstName);
+console.log('Last name - ' + lastName);
+console.log('random name printed');
+const val = {'firstName': firstName,
+                    'lastName': lastName,
+                    'password': null,
+                    'anonymous': true}
+localStorage.setItem('user1', JSON.stringify(val));
+const reconstructed_val2 = JSON.parse(localStorage.getItem('data'));
+console.log(reconstructed_val2);
+
 const a = document.getElementById('#sign-unknown');
 if (a) {
     a.onclick = function () {
