@@ -243,25 +243,9 @@ if (currentPage=="" || currentPage=='index.html'){
     cartIcon.addEventListener('click', function(e){
         let currentUser = localStorage.getItem('accountName');
         console.log(currentUser);
-        const accountData = JSON.parse(localStorage.getItem(currentUser));
-        const userName = accountData.username;
-        const firstname = accountData.firstName;
-        const lastname = accountData.lastName;
-        const passWord = accountData.password;
-        const anonymousStat = accountData.anonymous;
-
-        let data = {
-            'username': userName,
-            'firstName': firstname,
-            'lastName': lastname,
-            'password': passWord,
-            'anonymous': anonymousStat,
-            'cart': currentCart,
-            'address': null
-        }
+        let accountData = JSON.parse(localStorage.getItem(currentUser));
+        accountData.cart = currentCart;
         localStorage.setItem(userName, JSON.stringify(data));
-        // localStorage.setItem('accountName', username);
-        // window.alert('Singed up successfully!');
         window.location.href = document.getElementById('redirect-3').href;
 
     })
@@ -381,7 +365,7 @@ if (currentPage=="" || currentPage=='index.html'){
         localStorage.setItem(currentUser,JSON.stringify(accountData));
         window.alert('Order Complete!');
     })
-    
+
     // ############################################
     // card-validator
     // var validation = CreditCard.validate(card);
