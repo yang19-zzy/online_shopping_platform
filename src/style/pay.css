@@ -29,19 +29,19 @@ footer {
     justify-content: center;
     align-content: center;
     display: grid;
-    grid-template-columns: 220px 60px;
+    grid-template-columns: 210px 80px;
     grid-template-rows: 40px;
     gap: 10px;
 }
 
 #card-number, #card-number input, 
 #cardholder, #cardholder input {
-    width: 220px;
+    width: 210px;
 }
 
 #card-expiration, #card-expiration input, 
 #card-cvv, #card-cvv input {
-    width: 60px;
+    width: 80px;
 }
 
 #card-input h1, #card-input input {

@@ -245,7 +245,7 @@ if (currentPage=="" || currentPage=='index.html'){
         console.log(currentUser);
         let accountData = JSON.parse(localStorage.getItem(currentUser));
         accountData.cart = currentCart;
-        localStorage.setItem(userName, JSON.stringify(data));
+        localStorage.setItem(currentUser, JSON.stringify(accountData));
         window.location.href = document.getElementById('redirect-3').href;
 
     })
