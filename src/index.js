@@ -486,6 +486,11 @@ if (currentPage=="" || currentPage=='index.html'){
         orderHistory.appendChild(inform);
     }
 
+    const logOutBtn = document.getElementById('log-out');
+    logOutBtn.addEventListener('click', function(){
+        localStorage.setItem('accountName', '');
+        window.location.href = 'https://media2.giphy.com/media/YFIn0ICJFwGNa/giphy.gif';
+    })
 
 } else {
     console.log('Error!');
