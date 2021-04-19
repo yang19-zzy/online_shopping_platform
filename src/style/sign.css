@@ -51,3 +51,13 @@ section {
     margin-left: 99px;
     cursor: pointer;
 }
+
+#admin{
+    float: right;
+    top:150px;
+	right:40px;
+    display: block;
+    width: 100px;
+    font-size: 20px;
+    font-weight: 200;
+}
