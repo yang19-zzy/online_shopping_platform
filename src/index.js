@@ -463,14 +463,13 @@ if (currentPage=="" || currentPage=='index.html'){
             const orderInfo = Object.values(history[i]);
             let row = document.createElement('tr');
             
-            if (_.isEmpty(history[i].cart)) {
+            if (_.isEmpty(orderInfo.order)) {
                 continue;
             } else {
                 for (let j=0; j<orderInfo.length; j++) {
                     let td = document.createElement('td');
                     if (j==2) {
                         // this is order items
-                        
                         td.innerText = 'Total: $' + orderInfo[j].total.toString();
                     } else {
                         td.innerText = orderInfo[j];
