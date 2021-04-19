@@ -436,10 +436,10 @@ if (currentPage=="" || currentPage=='index.html'){
 
     // order history tabel
     let historyTitle = document.createElement('h1');
-    historyTitle.innerText = 'Your order history';
-    orderHistory.appendChild(historyTitle);
-    let history = accountData.orderHistory;
     if (history.length !== 0) {
+        historyTitle.innerText = 'Your order history';
+        orderHistory.appendChild(historyTitle);
+        let history = accountData.orderHistory;
         console.log('list order');
         let historyTable = document.createElement('table');
         let headRow = document.createElement('tr');

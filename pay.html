@@ -23,12 +23,12 @@
             <div id="card-input">
                 <div id="card-number">
                     <h1>card number</h1>
-                    <input type="text" placeholder="0123 4567 8901 2345">
+                    <input type="text" maxlength="12" pattern="([0-9]{16})" placeholder="0123 4567 8901 2345">
                 </div>
                 
                 <div id="card-cvv">
                     <h1>cvv</h1>
-                    <input type="text" placeholder="985">
+                    <input type="text" maxlength="3" pattern="([0-9]{3}])" placeholder="985">
                 </div>
 
                 <div id="cardholder">
