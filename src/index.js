@@ -389,8 +389,10 @@ if (currentPage=="" || currentPage=='index.html'){
     // click on pay
     const payBtn = document.getElementById('pay');
     payBtn.addEventListener('click',function(){
-        let timeStamp = new Date().getMilliseconds();
+        let timeStamp = new Date.now();
+        console.log(timeStamp);
         orderDate = moment(timeStamp).format("DD MM YYYY hh:mm:ss")
+        console.log(orderDate);
         accountData['orderHistory'].push({'orderNum':timeStamp,
                                             'date': orderDate,
                                             'order': accountData.cart,
@@ -466,6 +468,7 @@ if (currentPage=="" || currentPage=='index.html'){
                     let td = document.createElement('td');
                     if (j==1) {
                         // this is order items
+                        
                         td.innerText = 'Total: $' + orderInfo[j].total.toString();
                     } else {
                         td.innerText = orderInfo[j];
