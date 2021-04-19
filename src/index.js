@@ -460,7 +460,8 @@ if (currentPage=="" || currentPage=='index.html'){
         historyTable.appendChild(headRow);
 
         for (let i=0; i<history.length; i++) {
-            const orderInfo = Object.values(history[i]);
+            let orderInfo = Object.values(history[i]);
+            console.log(orderInfo);
             let row = document.createElement('tr');
             
             if (_.isEmpty(orderInfo.order)) {
