@@ -468,7 +468,7 @@ if (currentPage=="" || currentPage=='index.html'){
             } else {
                 for (let j=0; j<orderInfo.length; j++) {
                     let td = document.createElement('td');
-                    if (j==1) {
+                    if (j==2) {
                         // this is order items
                         
                         td.innerText = 'Total: $' + orderInfo[j].total.toString();
