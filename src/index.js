@@ -435,11 +435,11 @@ if (currentPage=="" || currentPage=='index.html'){
 
 
     // order history tabel
-    let historyTitle = document.createElement('h1');
+    let history = accountData.orderHistory;
     if (history.length !== 0) {
+        let historyTitle = document.createElement('h1');
         historyTitle.innerText = 'Your order history';
         orderHistory.appendChild(historyTitle);
-        let history = accountData.orderHistory;
         console.log('list order');
         let historyTable = document.createElement('table');
         let headRow = document.createElement('tr');
@@ -454,17 +454,23 @@ if (currentPage=="" || currentPage=='index.html'){
         for (let i=0; i<history.length; i++) {
             const orderInfo = Object.values(history[i]);
             let row = document.createElement('tr');
-            for (let j=0; j<orderInfo.length; j++) {
-                let td = document.createElement('td');
-                if (j==1) {
-                    // this is order items
-                    td.innerText = 'Total: $' + orderInfo[j].total.toString();
-                } else {
-                    td.innerText = orderInfo[j];
+            
+            if (_.isEmpty(history[i].cart)) {
+                continue;
+            } else {
+                for (let j=0; j<orderInfo.length; j++) {
+                    let td = document.createElement('td');
+                    if (j==1) {
+                        // this is order items
+                        td.innerText = 'Total: $' + orderInfo[j].total.toString();
+                    } else {
+                        td.innerText = orderInfo[j];
+                    }
+                    row.appendChild(td);
                 }
-                row.appendChild(td);
+                historyTable.appendChild(row);
+
             }
-            historyTable.appendChild(row);
         }
         orderHistory.appendChild(historyTable);
 
