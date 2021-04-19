@@ -17,28 +17,27 @@ console.log(currentPage);
 if (currentPage=="" || currentPage=='index.html'){
     const anomymousBtn = document.getElementById('sign-unknown');
     anomymousBtn.addEventListener('click',function(e){
-    let firstName = random.first();
-    let lastName = random.last();
-    console.log('First name - ' + firstName);
-    console.log('Last name - ' + lastName);
-    console.log('random name printed');
-    let accountName = firstName + lastName;
-    
-    const data = {'username': null,
-                'firstName': firstName,
-                'lastName': lastName,
-                'password': null,
-                'anonymous': true,
-                'cart': null,
-                'address': null
-                }
-    localStorage.setItem(accountName, JSON.stringify(data));
-    localStorage.setItem('accountName',accountName);
-    const reconstructed_val2 = JSON.parse(localStorage.getItem(accountName));
-    console.log(reconstructed_val2.firstName);
-    
-    window.location.href = document.getElementById('redirect').href;
-    
+        let firstName = random.first();
+        let lastName = random.last();
+        console.log('First name - ' + firstName);
+        console.log('Last name - ' + lastName);
+        console.log('random name printed');
+        let accountName = firstName + lastName;
+        
+        const data = {'username': null,
+                    'firstName': firstName,
+                    'lastName': lastName,
+                    'password': null,
+                    'cart': null,
+                    'orderHistory':[]
+                    }
+        localStorage.setItem(accountName, JSON.stringify(data));
+        localStorage.setItem('accountName',accountName);
+        const reconstructed_val2 = JSON.parse(localStorage.getItem(accountName));
+        console.log(reconstructed_val2.firstName);
+        
+        window.location.href = document.getElementById('redirect').href;
+        
     })
 
 } else if (currentPage == 'sign-up.html') {
@@ -52,25 +51,31 @@ if (currentPage=="" || currentPage=='index.html'){
         let password2 = document.getElementById('password2').value;
         console.log(password);
         console.log(password2);
-        if (password === password2) {
-            const data = {
-                'username': username,
-                'firstName': null,
-                'lastName': null,
-                'password': password,
-                'anonymous': false,
-                'cart': null,
-                'address': null
-            };
-            localStorage.setItem(username, JSON.stringify(data));
-            localStorage.setItem('accountName', username);
-            window.alert('Singed up successfully!');
-            window.location.href = document.getElementById('redirect').href;
+        const usernameArray = Object.keys(localStorage);
+        if (usernameArray.includes(username)) {
+            window.alert('Username exist! Please sign in.')
+            window.location.href = document.getElementById('redirect-1').href;
         } else {
-            window.alert('Please check your passward!')
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-            document.getElementById('password2').value = '';
+            if (password === password2) {
+                const data = {
+                    'username': username,
+                    'firstName': null,
+                    'lastName': null,
+                    'password': password,
+                    'cart': null,
+                    'orderHistory':[]
+                };
+                localStorage.setItem(username, JSON.stringify(data));
+                localStorage.setItem('accountName', username);
+                window.alert('Singed up successfully!');
+                window.location.href = document.getElementById('redirect').href;
+            } else {
+                window.alert('Please check your passward!')
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('password2').value = '';
+            }
+            
         }
     })
     
@@ -136,6 +141,22 @@ if (currentPage=="" || currentPage=='index.html'){
         };
     });
     
+    // display quantity in cart
+    const currentUser = localStorage.getItem('accountName');
+    console.log(currentUser);
+    let accountData = JSON.parse(localStorage.getItem(currentUser));
+    if (accountData.cart !== null) {
+        let switchNum = document.getElementById('switch-num');
+        let ringfitNum = document.getElementById('ringfit-num');
+        if (Object.keys(accountData.cart).includes('switch')) {
+            switchNum.innerText = accountData.cart.switch.quantity;
+        }
+        if (Object.keys(accountData.cart).includes('ringfit')) {
+            ringfitNum.innerText = accountData.cart.ringfit.quantity;
+        }
+        document.getElementById('num-items').innerText = parseInt(switchNum.innerText) + parseInt(ringfitNum.innerText);
+    }
+
     // #####################################################
     // ########       add minus cart-icon         ##########
     function calculateTotal(a,price1,b,price2) {
@@ -254,6 +275,16 @@ if (currentPage=="" || currentPage=='index.html'){
 
 } else if (currentPage == 'cart.html') {
     // ###################################################
+    // cart-page
+    const currentUser = localStorage.getItem('accountName');
+    console.log(currentUser);
+    const accountData = JSON.parse(localStorage.getItem(currentUser));
+    const cartItems = accountData.cart;
+    console.log(cartItems);
+
+    let cartSection = document.getElementById('cart');
+    let totalSection = document.getElementById('total');
+    
     function appendItems(itemStr) {
         let itemDescription = cartItems[itemStr];
         if (itemDescription.quantity !== 0) {
@@ -278,31 +309,28 @@ if (currentPage=="" || currentPage=='index.html'){
         }
     }
     
-    // cart-page
-    let currentUser = localStorage.getItem('accountName');
-    console.log(currentUser);
-    const accountData = JSON.parse(localStorage.getItem(currentUser));
-    const cartItems = accountData.cart;
-    console.log(cartItems);
+    if (cartItems!==null) {
+        if (cartItems.cartQuantity==0){
+            let emptyCart = document.createElement('h1');
+            emptyCart.innerHTML = 'You don\'t have any items in your cart.';
+            cartSection.appendChild(emptyCart);
+        } else {
+            console.log('you should print items from local storage');        
+            appendItems('switch');
+            appendItems('ringfit');
 
-    let cartSection = document.getElementById('cart');
-    let totalSection = document.getElementById('total');
+            // present total price
+            let totalPrice = document.createElement('h1');
+            totalPrice.innerHTML = 'Total price: $' + cartItems.total.toString();
 
-    if (cartItems.cartQuantity==0) {
+            totalSection.appendChild(totalPrice);
+        }
+    } else {
         let emptyCart = document.createElement('h1');
         emptyCart.innerHTML = 'You don\'t have any items in your cart.';
         cartSection.appendChild(emptyCart);
-    } else {
-        console.log('you should print items from local storage');        
-        appendItems('switch');
-        appendItems('ringfit');
-
-        // present total price
-        let totalPrice = document.createElement('h1');
-        totalPrice.innerHTML = 'Total price: $' + cartItems.total.toString();
-
-        totalSection.appendChild(totalPrice);
     }
+
 
     // click on Go Check Out btn
     const payBtn = document.getElementById('pay');
@@ -360,7 +388,17 @@ if (currentPage=="" || currentPage=='index.html'){
     // click on pay
     const payBtn = document.getElementById('pay');
     payBtn.addEventListener('click',function(){
-        accountData['payment'] = 'complete';
+        let timeStamp = new Date().getUTCMilliseconds();
+        accountData['orderHistory'].push({'orderNum':timeStamp,
+                                            'order': accountData.cart,
+                                            'purchased': true,
+                                            'address': document.getElementById('address').children[1].value,
+                                            'city': document.getElementById('city').children[1].value,
+                                            'state': document.getElementById('state').children[1].value,
+                                            'phone': document.getElementById('phone').children[1].value,
+                                            'zip': document.getElementById('zip').children[1].value
+                                        });
+        accountData['cart'] = {}; 
         console.log(accountData);
         localStorage.setItem(currentUser,JSON.stringify(accountData));
         window.alert('Order Complete!');
@@ -371,11 +409,99 @@ if (currentPage=="" || currentPage=='index.html'){
     // var validation = CreditCard.validate(card);
 
 
+} else if(currentPage == 'admin.html'){
+    // get current user data
+    const currentUser = localStorage.getItem('accountName');
+    const accountData = JSON.parse(localStorage.getItem(currentUser));
+    
+    // get page sections - accountInfo & orderHistory
+    let accountInfo = document.getElementById('account-info');
+    let orderHistory = document.getElementById('order-history');
+
+    // accountInfo
+    let infoTitle = document.createElement('h1');
+    infoTitle.innerText = 'Your account info';
+    accountInfo.appendChild(infoTitle);
+
+    let info = document.createElement('ul');
+    let infoPair = Object.entries(accountData);
+    for (let i=0; i<4; i++) {
+        let item = document.createElement('li');
+        item.innerText = infoPair[i][0] + ' -- ' + infoPair[i][1];
+        info.appendChild(item);
+    }
+    accountInfo.appendChild(info);
+
+
+
+    // order history tabel
+    let historyTitle = document.createElement('h1');
+    historyTitle.innerText = 'Your order history';
+    orderHistory.appendChild(historyTitle);
+    let history = accountData.orderHistory;
+    if (history.length !== 0) {
+        console.log('list order');
+        let historyTable = document.createElement('table');
+        let headRow = document.createElement('tr');
+        let header = Object.keys(history[0]);
+        for (let i=0; i<header.length; i++) {
+            let th = document.createElement('th');
+            th.innerText = header[i];
+            headRow.appendChild(th);
+        }
+        historyTable.appendChild(headRow);
+
+        for (let i=0; i<history.length; i++) {
+            const orderInfo = Object.values(history[i]);
+            let row = document.createElement('tr');
+            for (let j=0; j<orderInfo.length; j++) {
+                let td = document.createElement('td');
+                if (j==1) {
+                    // this is order items
+                    td.innerText = 'Total: $' + orderInfo[j].total.toString();
+                } else {
+                    td.innerText = orderInfo[j];
+                }
+                row.appendChild(td);
+            }
+            historyTable.appendChild(row);
+        }
+        orderHistory.appendChild(historyTable);
+
+    } else {
+        let inform = document.createElement('h1');
+        inform.innerText = 'No order history';
+        orderHistory.appendChild(inform);
+    }
+
+
 } else {
     console.log('Error!');
     window.alert('Error!')
 }
 
+
+const adminBtn = document.getElementById('admin');
+if (adminBtn) {
+    const currentUser = localStorage.getItem('accountName');
+    const accountData = JSON.parse(localStorage.getItem(currentUser));
+    adminBtn.addEventListener('click', function(){
+        let usernameInput = prompt('Your Username');
+        if (currentUser===usernameInput) {
+            let passwardInput = prompt('Your Password');
+            if ( accountData.password === passwardInput){
+                // window.alert('Wrong Password!');
+                window.location.href = document.getElementById('redirect-0').href;
+            } else {
+                window.alert('Wrong Password!');
+            }
+        } else {
+            window.alert('Please sign in first!');
+            window.location.href = document.getElementById('redirect-1').href;
+        }
+    })
+
+}
 
 
 
