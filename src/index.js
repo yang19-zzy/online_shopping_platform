@@ -490,6 +490,9 @@ if (currentPage=="" || currentPage=='index.html'){
     logOutBtn.addEventListener('click', function(){
         localStorage.setItem('accountName', '');
         window.location.href = 'https://media1.giphy.com/media/26uf6o80xhd6MKGIw/source.gif';
+        setTimeout(() => {  
+            window.location.href = document.getElementById('redirect-5').href;
+        }, 5000);
     })
 
 } else {
