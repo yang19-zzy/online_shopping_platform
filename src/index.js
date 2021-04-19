@@ -6,6 +6,7 @@ import {
     isSecurityCodeValid, 
     getCreditCardNameByNumber 
 } from 'credit-card';
+import moment from "moment";
 const random = require('random-name');
 
 let currentLocation = window.location.href.split('/');
@@ -388,8 +389,10 @@ if (currentPage=="" || currentPage=='index.html'){
     // click on pay
     const payBtn = document.getElementById('pay');
     payBtn.addEventListener('click',function(){
-        let timeStamp = new Date().getUTCMilliseconds();
+        let timeStamp = new Date().getMilliseconds();
+        orderDate = moment(timeStamp).format("DD MM YYYY hh:mm:ss")
         accountData['orderHistory'].push({'orderNum':timeStamp,
+                                            'date': orderDate,
                                             'order': accountData.cart,
                                             'purchased': true,
                                             'address': document.getElementById('address').children[1].value,
@@ -402,6 +405,7 @@ if (currentPage=="" || currentPage=='index.html'){
         console.log(accountData);
         localStorage.setItem(currentUser,JSON.stringify(accountData));
         window.alert('Order Complete!');
+        window.location.href = document.getElementById('redirect-0').href;
     })
 
     // ############################################
