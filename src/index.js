@@ -102,7 +102,7 @@ if (currentPage=="" || currentPage=='index.html'){
             console.log(usernameCheck);
             if (passwardCheck == password && usernameCheck==username) {
                 localStorage.setItem('accountName', username);
-                window.alert('Singed in successfully!');
+                window.alert('Signed in successfully!');
                 window.location.href = document.getElementById('redirect').href;
             } else {
                 checkPasswordUsername();
