@@ -67,7 +67,7 @@ if (currentPage=="" || currentPage=='index.html'){
                 };
                 localStorage.setItem(username, JSON.stringify(data));
                 localStorage.setItem('accountName', username);
-                window.alert('Singed up successfully!');
+                window.alert('Signed up successfully!');
                 window.location.href = document.getElementById('redirect').href;
             } else {
                 window.alert('Please check your passward!')
