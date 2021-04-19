@@ -352,8 +352,7 @@ if (currentPage=="" || currentPage=='index.html'){
     // fake name generator
     let fakeFirst = random.first();
     let fakeLast = random.last();
-    accountData.firstName = fakeFirst;
-    accountData.lastName = fakeLast;
+    
     
 
     // if clicked on auto fill
@@ -389,11 +388,14 @@ if (currentPage=="" || currentPage=='index.html'){
     // click on pay
     const payBtn = document.getElementById('pay');
     payBtn.addEventListener('click',function(){
-        let timeStamp = new Date.now();
+        accountData.firstName = document.getElementById('firstname').children[1].value;
+        accountData.lastName = document.getElementById('lastname').children[1].value;
+
+        let timeStamp = Date.now();
         console.log(timeStamp);
-        orderDate = moment(timeStamp).format("DD MM YYYY hh:mm:ss")
+        let orderDate = moment(timeStamp).format("MM/DD/YYYY hh:mm:ss");
         console.log(orderDate);
-        accountData['orderHistory'].push({'orderNum':timeStamp,
+        accountData.orderHistory.push({'orderNum':timeStamp,
                                             'date': orderDate,
                                             'order': accountData.cart,
                                             'purchased': true,
