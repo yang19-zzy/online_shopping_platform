@@ -465,6 +465,7 @@ if (currentPage=="" || currentPage=='index.html'){
             let row = document.createElement('tr');
             
             if (_.isEmpty(orderInfo.order)) {
+                console.log('order is empty')
                 continue;
             } else {
                 for (let j=0; j<orderInfo.length; j++) {
