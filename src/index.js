@@ -353,18 +353,22 @@ if (currentPage=="" || currentPage=='index.html'){
     let fakeFirst = random.first();
     let fakeLast = random.last();
     
+    let firstname = document.getElementById('firstname');
+    let lastname = document.getElementById('lastname');
+    let address = document.getElementById('address');
+    let city = document.getElementById('city');
+    let state = document.getElementById('state');
+    let phone = document.getElementById('phone');
+    let zip = document.getElementById('zip');
     
+    let cardNumber = document.getElementById('card-number');
+    let cardCvv = document.getElementById('card-cvv');
+    let cardHolder = document.getElementById('cardholder');
+    let cardExp = document.getElementById('card-expiration');
 
     // if clicked on auto fill
     const autoFill = document.getElementById('auto-fill');
     autoFill.addEventListener('click',function(e){
-        let firstname = document.getElementById('firstname');
-        let lastname = document.getElementById('lastname');
-        let address = document.getElementById('address');
-        let city = document.getElementById('city');
-        let state = document.getElementById('state');
-        let phone = document.getElementById('phone');
-        let zip = document.getElementById('zip');
 
         firstname.children[1].setAttribute('value', fakeFirst);
         lastname.children[1].setAttribute('value',fakeLast);
@@ -373,11 +377,6 @@ if (currentPage=="" || currentPage=='index.html'){
         state.children[1].setAttribute('value','MI');
         phone.children[1].setAttribute('value','(734)***-****');
         zip.children[1].setAttribute('value','48109');
-
-        let cardNumber = document.getElementById('card-number');
-        let cardCvv = document.getElementById('card-cvv');
-        let cardHolder = document.getElementById('cardholder');
-        let cardExp = document.getElementById('card-expiration');
 
         cardNumber.children[1].setAttribute('value', card.number);
         cardCvv.children[1].setAttribute('value', card.cvv);
@@ -388,28 +387,34 @@ if (currentPage=="" || currentPage=='index.html'){
     // click on pay
     const payBtn = document.getElementById('pay');
     payBtn.addEventListener('click',function(){
-        accountData.firstName = document.getElementById('firstname').children[1].value;
-        accountData.lastName = document.getElementById('lastname').children[1].value;
+        if (!firstname || !lastname || !address || !city || !state || !phone || !zip || !cardNumber || ! cardCvv || !cardHolder || !cardExp) {
 
-        let timeStamp = Date.now();
-        console.log(timeStamp);
-        let orderDate = moment(timeStamp).format("MM/DD/YYYY hh:mm:ss");
-        console.log(orderDate);
-        accountData.orderHistory.push({'orderNum':timeStamp,
-                                            'date': orderDate,
-                                            'order': accountData.cart,
-                                            'purchased': true,
-                                            'address': document.getElementById('address').children[1].value,
-                                            'city': document.getElementById('city').children[1].value,
-                                            'state': document.getElementById('state').children[1].value,
-                                            'phone': document.getElementById('phone').children[1].value,
-                                            'zip': document.getElementById('zip').children[1].value
-                                        });
-        accountData['cart'] = {}; 
-        console.log(accountData);
-        localStorage.setItem(currentUser,JSON.stringify(accountData));
-        window.alert('Order Complete!');
-        window.location.href = document.getElementById('redirect-0').href;
+            accountData.firstName = document.getElementById('firstname').children[1].value;
+            accountData.lastName = document.getElementById('lastname').children[1].value;
+    
+            let timeStamp = Date.now();
+            console.log(timeStamp);
+            let orderDate = moment(timeStamp).format("MM/DD/YYYY hh:mm:ss");
+            console.log(orderDate);
+            accountData.orderHistory.push({'orderNum':timeStamp,
+                                                'date': orderDate,
+                                                'order': accountData.cart,
+                                                'purchased': true,
+                                                'address': document.getElementById('address').children[1].value,
+                                                'city': document.getElementById('city').children[1].value,
+                                                'state': document.getElementById('state').children[1].value,
+                                                'phone': document.getElementById('phone').children[1].value,
+                                                'zip': document.getElementById('zip').children[1].value
+                                            });
+            accountData['cart'] = {}; 
+            console.log(accountData);
+            localStorage.setItem(currentUser,JSON.stringify(accountData));
+            window.alert('Order Complete!');
+            window.location.href = document.getElementById('redirect-0').href;
+        } else {
+            window.alert('Please check your input!')
+        }
+
     })
 
     // ############################################
