@@ -489,7 +489,7 @@ if (currentPage=="" || currentPage=='index.html'){
     const logOutBtn = document.getElementById('log-out');
     logOutBtn.addEventListener('click', function(){
         localStorage.setItem('accountName', '');
-        window.location.href = 'https://media2.giphy.com/media/YFIn0ICJFwGNa/giphy.gif';
+        window.location.href = 'https://media1.giphy.com/media/26uf6o80xhd6MKGIw/source.gif';
     })
 
 } else {
