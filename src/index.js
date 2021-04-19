@@ -146,7 +146,7 @@ if (currentPage=="" || currentPage=='index.html'){
     const currentUser = localStorage.getItem('accountName');
     console.log(currentUser);
     let accountData = JSON.parse(localStorage.getItem(currentUser));
-    if (accountData.cart !== null) {
+    if(accountData){if (accountData.cart !== null) {
         let switchNum = document.getElementById('switch-num');
         let ringfitNum = document.getElementById('ringfit-num');
         if (Object.keys(accountData.cart).includes('switch')) {
@@ -156,7 +156,7 @@ if (currentPage=="" || currentPage=='index.html'){
             ringfitNum.innerText = accountData.cart.ringfit.quantity;
         }
         document.getElementById('num-items').innerText = parseInt(switchNum.innerText) + parseInt(ringfitNum.innerText);
-    }
+    }}
 
     // #####################################################
     // ########       add minus cart-icon         ##########
