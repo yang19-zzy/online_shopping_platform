@@ -463,24 +463,20 @@ if (currentPage=="" || currentPage=='index.html'){
             let orderInfo = Object.values(history[i]);
             console.log(orderInfo);
             let row = document.createElement('tr');
-            
-            if (_.isEmpty(orderInfo.order)) {
-                console.log('order is empty')
-                continue;
-            } else {
-                for (let j=0; j<orderInfo.length; j++) {
-                    let td = document.createElement('td');
-                    if (j==2) {
-                        // this is order items
-                        td.innerText = 'Total: $' + orderInfo[j].total.toString();
-                    } else {
-                        td.innerText = orderInfo[j];
-                    }
-                    row.appendChild(td);
+    
+            for (let j=0; j<orderInfo.length; j++) {
+                let td = document.createElement('td');
+                if ((j==2) && (_.isEmpty(orderInfo[j]) == false )){
+                    // this is order items
+                    td.innerText = 'Total: $' + orderInfo[j].total.toString();
+                } else {
+                    td.innerText = orderInfo[j];
                 }
-                historyTable.appendChild(row);
-
+                row.appendChild(td);
             }
+            historyTable.appendChild(row);
+
+
         }
         orderHistory.appendChild(historyTable);
 
